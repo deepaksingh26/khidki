@@ -10,4 +10,7 @@ coverage
 .DS_Store
 supabase/.branches
 supabase/.temp
-tool
+node_modules/
+.tools/
+.env
+.next/
