@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme inline {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-devanagari: var(--font-devanagari);
+  --color-khidkee-saffron: var(--khidkee-saffron);
+  --color-khidkee-earth: var(--khidkee-earth);
+  --color-khidkee-green: var(--khidkee-green);
+  --color-khidkee-cream: var(--khidkee-cream);
+  --color-khidkee-red: var(--khidkee-red);
+  --color-khidkee-blue: var(--khidkee-blue);
+  --color-khidkee-mist: var(--khidkee-mist);
+  --color-khidkee-sand: var(--khidkee-sand);
+}
+
+:root {
+  --font-heading: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body:
+    "Noto Sans",
+    "Aptos",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  --font-devanagari:
+    "Noto Sans Devanagari",
+    "Kohinoor Devanagari",
+    "Mangal",
+    "Nirmala UI",
+    sans-serif;
+  --khidkee-saffron: #ff6b00;
+  --khidkee-earth: #1c0f00;
+  --khidkee-green: #2d6a2d;
+  --khidkee-cream: #faf4e8;
+  --khidkee-red: #c0392b;
+  --khidkee-blue: #0a4ba0;
+  --khidkee-mist: #f4ede0;
+  --khidkee-sand: #d7c2a7;
+  --background: #faf4e8;
+  --foreground: #1c0f00;
+  --border: rgba(28, 15, 0, 0.1);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top left, rgba(255, 107, 0, 0.14), transparent 22%),
+      radial-gradient(circle at 75% 15%, rgba(10, 75, 160, 0.12), transparent 24%),
+      linear-gradient(180deg, #fdf8ee 0%, #faf4e8 100%);
+    color: var(--foreground);
+    font-family: var(--font-body), var(--font-devanagari), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), var(--font-devanagari), serif;
+    letter-spacing: -0.02em;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+
+  ::selection {
+    background: rgba(255, 107, 0, 0.24);
+  }
+}
+
+@layer utilities {
+  .surface-panel {
+    @apply rounded-[1.75rem] border border-khidkee-earth/10 bg-white shadow-[0_24px_70px_rgba(28,15,0,0.07)];
+  }
+
+  .surface-muted {
+    @apply rounded-[1.5rem] border border-khidkee-earth/8 bg-khidkee-mist;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .tap-target {
+    @apply min-h-12 min-w-12;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-0 focus-visible:ring-4 focus-visible:ring-khidkee-saffron/25;
+  }
+}

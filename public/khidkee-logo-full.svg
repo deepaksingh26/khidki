@@ -1,0 +1,54 @@
+<svg viewBox="0 0 980 240" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <filter id="khidkee-blue-glow" x="0" y="0" width="320" height="240" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="0 0 0 0 0.0392 0 0 0 0 0.2941 0 0 0 0 0.6275 0 0 0 0.45 0"
+      />
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+    <filter id="khidkee-orange-glow" x="0" y="92" width="320" height="120" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="0 0 0 0 1 0 0 0 0 0.4196 0 0 0 0 0 0 0 0 0.45 0"
+      />
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(36 24)">
+    <g filter="url(#khidkee-blue-glow)">
+      <path d="M28 12H178V144" stroke="#0A4BA0" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M103 12V80" stroke="#0A4BA0" stroke-width="8" stroke-linecap="round"/>
+      <path d="M28 80H178" stroke="#0A4BA0" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <circle cx="72" cy="118" r="17" fill="#050505"/>
+    <circle cx="104" cy="112" r="17" fill="#050505"/>
+    <circle cx="136" cy="118" r="17" fill="#050505"/>
+    <g filter="url(#khidkee-orange-glow)">
+      <path
+        d="M18 156C34 156 34 140 50 140C66 140 66 156 82 156C98 156 98 140 114 140C130 140 130 156 146 156C162 156 162 140 178 140C194 140 194 156 210 156"
+        stroke="#FF6B00"
+        stroke-width="12"
+        stroke-linecap="round"
+      />
+    </g>
+  </g>
+
+  <text
+    x="320"
+    y="152"
+    fill="#050505"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="122"
+    font-weight="900"
+    letter-spacing="-6"
+  >
+    KHIDKEE
+  </text>
+</svg>
+
