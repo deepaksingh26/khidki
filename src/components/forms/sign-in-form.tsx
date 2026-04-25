@@ -23,6 +23,7 @@ export function SignInForm({ nextPath = "/app" }: { nextPath?: string }) {
     resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
+      password: "",
       nextPath
     }
   });
@@ -45,13 +46,18 @@ export function SignInForm({ nextPath = "/app" }: { nextPath?: string }) {
     >
       <label className="space-y-2">
         <span className="text-sm font-medium text-khidkee-earth">Email</span>
-        <Input {...register("email")} placeholder="name@example.org" />
+        <Input {...register("email")} placeholder="name@example.org" type="email" />
         {errors.email ? <p className="text-sm text-khidkee-red">{errors.email.message}</p> : null}
+      </label>
+      <label className="space-y-2">
+        <span className="text-sm font-medium text-khidkee-earth">Password</span>
+        <Input {...register("password")} placeholder="Enter your password" type="password" />
+        {errors.password ? <p className="text-sm text-khidkee-red">{errors.password.message}</p> : null}
       </label>
       <input type="hidden" {...register("nextPath")} />
       {result ? <FormMessage tone={result.tone} message={result.message} /> : null}
       <Button type="submit" variant="secondary" className="w-full" disabled={isPending}>
-        {isPending ? "Opening the door..." : "Sign in"}
+        {isPending ? "Authenticating..." : "Sign in"}
       </Button>
     </form>
   );

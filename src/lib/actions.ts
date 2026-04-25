@@ -113,14 +113,9 @@ export async function startSignInAction(values: unknown): Promise<ActionResult> 
     };
   }
 
-  const callbackUrl = new URL("/auth/callback", getSiteUrl());
-  callbackUrl.searchParams.set("next", nextPath);
-
-  const { error } = await supabase.auth.signInWithOtp({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email: parsed.email,
-    options: {
-      emailRedirectTo: callbackUrl.toString()
-    }
+    password: parsed.password
   });
 
   if (error) {
@@ -130,9 +125,14 @@ export async function startSignInAction(values: unknown): Promise<ActionResult> 
     };
   }
 
+  if (data.session) {
+    redirect(nextPath);
+  }
+
   return {
     success: true,
-    message: `A sign-in link is on its way to ${parsed.email}.`
+    message: `Sign-in successful. Redirecting...`,
+    redirectTo: nextPath
   };
 }
 

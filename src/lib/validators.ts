@@ -21,8 +21,11 @@ export const contactMessageSchema = z.object({
 
 export const signInSchema = z.object({
   email: z.string().trim().email("Please enter a working email address."),
+  password: z.string().min(6, "Password must be at least 6 characters."),
   nextPath: optionalText
 });
+
+export type SignInValues = z.infer<typeof signInSchema>;
 
 export const contactFormSchema = z.object({
   id: optionalText,
